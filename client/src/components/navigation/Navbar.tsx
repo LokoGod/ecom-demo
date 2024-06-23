@@ -6,10 +6,10 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="block w-full px-6 py-8 md:py-4 mx-auto text-black bg-white border shadow-md border-white/80 bg-opacity-80 backdrop-blur-2xl backdrop-saturate-200">
-        <div className="grid grid-cols-3 gap-10">
-          <div className="border hidden md:block">
-            <ul className="flex flex-row gap-10">
+      <nav className="block w-full px-6 py-8 md:py-5 mx-auto text-black bg-navbar border shadow-md border-navbar/80 bg-opacity-80 backdrop-blur-2xl backdrop-saturate-200  font-poppins ">
+        <div className="grid grid-cols-3 gap-10 mx-4">
+          <div className=" hidden lg:block">
+            <ul className="flex flex-row gap-10 text-gray-700 font-semibold ">
               <li>
                 <a href="#" className="">
                   <p className="text-center">MEN</p>
@@ -33,14 +33,14 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <div className="border">
+          <div className="">
             <a href="#" className="">
-              <p className="text-center">Soratha</p>
+              <p className="text-center font-Sarina text-xl text-blue-950 ">Soratha</p>
             </a>
           </div>
 
-          <div className="border hidden md:block">
-            <ul className="flex flex-row justify-end gap-10">
+          <div className=" hidden lg:block">
+            <ul className="flex flex-row justify-end gap-10  text-gray-700 font-semibold">
               <li>
                 <a href="#" className="">
                   <p className="text-center">RERUN</p>
@@ -70,7 +70,7 @@ const Navbar = () => {
           </div>
 
           {/* Hamburger Menu Icon */}
-          <div className="flex items-center justify-end md:hidden">
+          <div className="flex items-end mx-56 justify-end lg:hidden">
             <button onClick={() => setMenuOpen(!menuOpen)}>
               <svg
                 className="w-6 h-6"
@@ -92,7 +92,7 @@ const Navbar = () => {
 
         {/* Hamburger Menu Content */}
         {menuOpen && (
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <ul className="flex flex-col gap-4 mt-4">
               <li>
                 <a href="#" className="">
