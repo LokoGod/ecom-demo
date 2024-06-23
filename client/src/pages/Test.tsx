@@ -5,6 +5,7 @@ const Test = () => {
   return (
     <div>
         <CollapsibleMenu />
+        <p>Hello there!</p>
     </div> 
   )
 }
