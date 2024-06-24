@@ -1,7 +1,7 @@
 import React from "react";
 import type { CollapseProps } from "antd";
 import { Collapse } from "antd";
-import { Pagination, Carousel  } from "antd";
+import { Pagination, Carousel } from "antd";
 
 const items: CollapseProps["items"] = [
   {
@@ -41,19 +41,17 @@ const items: CollapseProps["items"] = [
 
 const contentStyle: React.CSSProperties = {
   margin: 0,
-  height: '160px',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#364d79',
+  height: "160px",
+  color: "#fff",
+  lineHeight: "160px",
+  textAlign: "center",
+  background: "#364d79",
 };
 
 const Test = () => {
-
   const onChange = (currentSlide: number) => {
     console.log(currentSlide);
-    
-  }
+  };
 
   return (
     <>
@@ -81,21 +79,29 @@ const Test = () => {
         </div>
       </div>
 
-      <div className="mt-10 w-3/4 border-">
-      <Carousel afterChange={onChange}>
-      <div>
-        <h3 style={contentStyle}>1</h3>
-      </div>
-      <div>
-        <h3 style={contentStyle}>2</h3>
-      </div>
-      <div>
-        <h3 style={contentStyle}>3</h3>
-      </div>
-      <div>
-        <h3 style={contentStyle}>4</h3>
-      </div>
-    </Carousel>
+      <div className="mt-10 w-3/4 rounded-lg">
+        <Carousel afterChange={onChange}>
+          <div>
+            <h3 style={contentStyle} className="rounded-lg">
+              1
+            </h3>
+          </div>
+          <div>
+            <h3 style={contentStyle} className="rounded-lg">
+              2
+            </h3>
+          </div>
+          <div>
+            <h3 style={contentStyle} className="rounded-lg">
+              3
+            </h3>
+          </div>
+          <div>
+            <h3 style={contentStyle} className="rounded-lg">
+              4
+            </h3>
+          </div>
+        </Carousel>
       </div>
 
       {/* <div className="flex justify-center mt-10">
