@@ -44,7 +44,7 @@ const Navbar = () => {
             <ul className="flex flex-row justify-end gap-10 text-gray-700 font-semibold">
               <li>
                 <a href="#" className="">
-                  <p className="text-center">RERUN</p>
+                  <p className="text-center">RETRUN</p>
                 </a>
               </li>
               <li>
