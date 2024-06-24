@@ -39,6 +39,15 @@ const items: CollapseProps["items"] = [
   },
 ];
 
+const contentStyle: React.CSSProperties = {
+  margin: 0,
+  height: '160px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: '#364d79',
+};
+
 const Test = () => {
 
   const onChange = (currentSlide: number) => {
@@ -72,26 +81,26 @@ const Test = () => {
         </div>
       </div>
 
-      <div>
+      <div className="mt-10 w-3/4 border-">
       <Carousel afterChange={onChange}>
       <div>
-        <h3>1 jesus fucking chritst</h3>
+        <h3 style={contentStyle}>1</h3>
       </div>
       <div>
-        <h3 >2</h3>
+        <h3 style={contentStyle}>2</h3>
       </div>
       <div>
-        <h3 >3</h3>
+        <h3 style={contentStyle}>3</h3>
       </div>
       <div>
-        <h3>4</h3>
+        <h3 style={contentStyle}>4</h3>
       </div>
     </Carousel>
       </div>
 
-      <div className="flex justify-center mt-10">
+      {/* <div className="flex justify-center mt-10">
         <Pagination defaultCurrent={1} total={50} />
-      </div>
+      </div> */}
     </>
   );
 };
