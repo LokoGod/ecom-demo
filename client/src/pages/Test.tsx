@@ -1,6 +1,7 @@
 import React from "react";
 import type { CollapseProps } from "antd";
 import { Collapse } from "antd";
+import { Pagination, Carousel  } from "antd";
 
 const items: CollapseProps["items"] = [
   {
@@ -39,6 +40,12 @@ const items: CollapseProps["items"] = [
 ];
 
 const Test = () => {
+
+  const onChange = (currentSlide: number) => {
+    console.log(currentSlide);
+    
+  }
+
   return (
     <>
       <h2 className="poppins-bold text-2xl ml-10 my-3">
@@ -63,6 +70,27 @@ const Test = () => {
         <div className="col-span-2">
           <Collapse items={items} bordered={false} defaultActiveKey={["1"]} />
         </div>
+      </div>
+
+      <div>
+      <Carousel afterChange={onChange}>
+      <div>
+        <h3>1 jesus fucking chritst</h3>
+      </div>
+      <div>
+        <h3 >2</h3>
+      </div>
+      <div>
+        <h3 >3</h3>
+      </div>
+      <div>
+        <h3>4</h3>
+      </div>
+    </Carousel>
+      </div>
+
+      <div className="flex justify-center mt-10">
+        <Pagination defaultCurrent={1} total={50} />
       </div>
     </>
   );
