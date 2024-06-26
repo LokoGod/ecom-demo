@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import image from "../assets/Rectangle 2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons"; // Import the icon
 import type { CollapseProps } from "antd";
 import { Collapse } from "antd";
-import { Pagination, Carousel } from "antd";
+import { Carousel } from "antd";
+import { Flex, Rate } from "antd";
 
 const items: CollapseProps["items"] = [
   {
@@ -55,6 +56,10 @@ const ProductDetail = () => {
   const onChange = (currentSlide: number) => {
     console.log(currentSlide);
   };
+
+  const desc = ["terrible", "bad", "normal", "good", "wonderful"];
+  const [value, setValue] = useState(3);
+
   return (
     <>
       <div className="m-12">
@@ -83,13 +88,14 @@ const ProductDetail = () => {
               </p>
             </div>
 
-            <div className=" flex gap-1 mt-3 text-gray-500 ">
-              <FontAwesomeIcon icon={faStar} />
-              <FontAwesomeIcon icon={faStar} />
-              <FontAwesomeIcon icon={faStar} />
-              <FontAwesomeIcon icon={faStar} />
-              <FontAwesomeIcon icon={faStar} />
+            <div className="gap-1 mt-3">
+              <Flex gap="middle" vertical>
+                <Rate tooltips={desc} onChange={setValue} value={value} />
+                {value ? <span>{desc[value - 1]}</span> : null}
+              </Flex>
             </div>
+
+        
 
             <div>
               <p className="mt-14 text-xl">
