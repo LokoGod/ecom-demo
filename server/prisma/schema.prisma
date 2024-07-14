@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Inventory Begin
+model Product {
+  id                 Int    @id @default(autoincrement())
+  productTitle       String
+  productDescription String
+  prodcutPrice       Float
+}
+
+model InventoryRecord {
+  id       Int @id @default(autoincrement())
+  quantity Int
+}
+
+model ProdcutType {
+  id              Int    @id @default(autoincrement())
+  productTypeName String
+}
+
+model ProdcutCategory {
+  id                  Int    @id @default(autoincrement())
+  productCategoryName String
+}
+
+model Size {
+  id        Int    @id @default(autoincrement())
+  sizeName  String
+  sizeValue Float
+}
+
+model Colors {
+  id        Int    @id @default(autoincrement())
+  colorName String
+  hexCode   Int
+}
+
+// Inventory End
