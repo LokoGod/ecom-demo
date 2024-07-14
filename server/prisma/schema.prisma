@@ -19,19 +19,22 @@ model Product {
   productTitle       String
   productDescription String
   prodcutPrice       Float
+  productType        ProductType       @relation(fields: [productTypeId], references: [id])
+  productTypeId      Int
   inventoryRecord    InventoryRecord[]
 }
 
 model InventoryRecord {
-  id             Int     @id @default(autoincrement())
-  relatedProduct Product @relation(fields: [productId], references: [id])
-  productId      Int
-  quantity       Int
+  id                Int     @id @default(autoincrement())
+  recRelatedProduct Product @relation(fields: [productId], references: [id])
+  productId         Int
+  quantity          Int
 }
 
-model ProdcutType {
-  id              Int    @id @default(autoincrement())
-  productTypeName String
+model ProductType {
+  id                 Int       @id @default(autoincrement())
+  productTypeName    String
+  typeRelatedProduct Product[]
 }
 
 model ProdcutCategory {
