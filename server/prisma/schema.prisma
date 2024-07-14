@@ -15,16 +15,18 @@ datasource db {
 
 // Inventory Begin
 model Product {
-  id                 Int    @id @default(autoincrement())
+  id                 Int               @id @default(autoincrement())
   productTitle       String
   productDescription String
   prodcutPrice       Float
+  inventoryRecord    InventoryRecord[]
 }
 
 model InventoryRecord {
-  id       Int @id @default(autoincrement())
-  productId Int
-  quantity Int
+  id             Int     @id @default(autoincrement())
+  relatedProduct Product @relation(fields: [productId], references: [id])
+  productId      Int
+  quantity       Int
 }
 
 model ProdcutType {
