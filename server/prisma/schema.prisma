@@ -54,4 +54,12 @@ model Colors {
   hexCode   Int
 }
 
-// Inventory End
+// Order Begin
+model Order {
+  id Int @id @default(autoincrement())
+}
+
+// User Begin
+model User {
+  id Int @id @default(autoincrement())
+}
