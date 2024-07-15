@@ -21,6 +21,8 @@ model Product {
   prodcutPrice       Float
   productType        ProductType       @relation(fields: [productTypeId], references: [id])
   productTypeId      Int
+  productCategory    ProdcutCategory   @relation(fields: [prodcutCategoryId], references: [id])
+  prodcutCategoryId  Int
   inventoryRecord    InventoryRecord[]
 }
 
@@ -38,8 +40,9 @@ model ProductType {
 }
 
 model ProdcutCategory {
-  id                  Int    @id @default(autoincrement())
-  productCategoryName String
+  id                     Int       @id @default(autoincrement())
+  productCategoryName    String
+  categoryRelatedProduct Product[]
 }
 
 model Size {
