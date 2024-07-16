@@ -5,6 +5,8 @@ const getAllColors = async () => {
   return prisma.colors.findMany();
 };
 
+
+
 const proColorRepo = {
   getAllColors,
 };
