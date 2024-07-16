@@ -7,7 +7,7 @@ const getAllSizes = async () => {
 
 const proSizeRepo = {
     getAllSizes
-  };
+};
   
-  export default proSizeRepo;
+export default proSizeRepo;
   
