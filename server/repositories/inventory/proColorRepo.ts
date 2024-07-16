@@ -11,7 +11,6 @@ const createColor = async (colorName: string, hexCode: string) => {
   })
 }
 
-
 const proColorRepo = {
   getAllColors, createColor
 };
