@@ -27,10 +27,14 @@ model Product {
 }
 
 model InventoryRecord {
-  id                Int     @id @default(autoincrement())
-  recRelatedProduct Product @relation(fields: [productId], references: [id])
-  productId         Int
-  quantity          Int
+  id                       Int     @id @default(autoincrement())
+  recRelatedProduct        Product @relation(fields: [productId], references: [id])
+  productId                Int
+  colorOfInventoryRecord   Colors  @relation(fields: [colorOfInventoryRecordId], references: [id])
+  colorOfInventoryRecordId Int
+  sizeOfInventoryRecord    Size    @relation(fields: [sizeOfInventoryRecordId], references: [id])
+  sizeOfInventoryRecordId  Int
+  quantity                 Int
 }
 
 model ProductType {
@@ -46,15 +50,17 @@ model ProdcutCategory {
 }
 
 model Size {
-  id        Int    @id @default(autoincrement())
-  sizeName  String
-  sizeValue Float
+  id                         Int               @id @default(autoincrement())
+  sizeName                   String
+  sizeValue                  Float
+  sizeRelatedInventoryRecord InventoryRecord[]
 }
 
 model Colors {
-  id        Int    @id @default(autoincrement())
-  colorName String
-  hexCode   Int
+  id                          Int               @id @default(autoincrement())
+  colorName                   String
+  hexCode                     Int
+  colorRelatedInventoryRecord InventoryRecord[]
 }
 
 // Order Begin
