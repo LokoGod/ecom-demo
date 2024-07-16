@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import "dotenv/config";
 
 // Import custom routes
-// import { jobRoute } from "./routes/jobRoute";
+import { proColorRoutes } from "./routes/inventory/proColorRoutes";
 
 // Instances
 const app = express();
@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // API routing
-// app.use("/api/v1/job", jobRoute);
+app.use("/api/v1/proColor", proColorRoutes);
 
 const port = process.env.PORT || 9000;
 
