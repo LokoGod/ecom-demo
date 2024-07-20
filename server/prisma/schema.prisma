@@ -1,0 +1,74 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Inventory Begin
+model Product {
+  id                 Int               @id @default(autoincrement())
+  productTitle       String
+  productDescription String
+  prodcutPrice       Float
+  productType        ProductType       @relation(fields: [productTypeId], references: [id])
+  productTypeId      Int
+  productCategory    ProdcutCategory   @relation(fields: [prodcutCategoryId], references: [id])
+  prodcutCategoryId  Int
+  inventoryRecord    InventoryRecord[]
+}
+
+model InventoryRecord {
+  id                       Int     @id @default(autoincrement())
+  recRelatedProduct        Product @relation(fields: [productId], references: [id])
+  productId                Int
+  colorOfInventoryRecord   Colors  @relation(fields: [colorOfInventoryRecordId], references: [id])
+  colorOfInventoryRecordId Int
+  sizeOfInventoryRecord    Size    @relation(fields: [sizeOfInventoryRecordId], references: [id])
+  sizeOfInventoryRecordId  Int
+  quantity                 Int
+}
+
+model ProductType {
+  id                 Int       @id @default(autoincrement())
+  productTypeName    String
+  typeRelatedProduct Product[]
+}
+
+model ProdcutCategory {
+  id                     Int       @id @default(autoincrement())
+  productCategoryName    String
+  categoryRelatedProduct Product[]
+}
+
+model Size {
+  id                         Int               @id @default(autoincrement())
+  sizeName                   String
+  sizeValue                  Float
+  sizeRelatedInventoryRecord InventoryRecord[]
+}
+
+model Colors {
+  id                          Int               @id @default(autoincrement())
+  colorName                   String
+  hexCode                     String
+  colorRelatedInventoryRecord InventoryRecord[]
+}
+
+// Order Begin
+model Order {
+  id Int @id @default(autoincrement())
+}
+
+// User Begin
+model User {
+  id Int @id @default(autoincrement())
+}
