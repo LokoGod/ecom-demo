@@ -74,3 +74,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+main {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
