@@ -1,26 +1,16 @@
-export class HttpError extends Error {
-    statusCode: number;
+class HttpStatusCode extends Error {
+  status: number;
 
-    constructor(message: string, statusCode: number) {
-        super(message);
-        this.statusCode = statusCode
-    }
+  constructor(status: number, message: string) {
+    super(message);
+    this.status = status;
+  }
 }
 
-export class NotFound extends HttpError {
-    constructor(message: string = 'Not Found') {
-      super(message, 404);
-    }
-  }
-  
-  export class BadRequest extends HttpError {
-    constructor(message: string = 'Bad Request') {
-      super(message, 400);
-    }
-  }
+const BadRequest = (message: string = "Bad Request") => new HttpStatusCode(400, message);
+const Unauthorized = (message: string = "Unauthorized") => new HttpStatusCode(401, message);
+const Forbidden = (message: string = "Forbidden") => new HttpStatusCode(403, message);
+const NotFound = (message: string = "Not Found") => new HttpStatusCode(404, message);
+const InternalServerError = (message: string = "Internal Server Error") => new HttpStatusCode(500, message);
 
-  export class InternalServer extends HttpError {
-    constructor(message: string = 'Internal Server Error') {
-      super(message, 500);
-    }
-  }
+export { HttpStatusCode, BadRequest, Unauthorized, Forbidden, NotFound, InternalServerError };
