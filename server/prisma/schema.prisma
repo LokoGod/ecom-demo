@@ -59,7 +59,7 @@ model Size {
 model Colors {
   id                          Int               @id @default(autoincrement())
   colorName                   String
-  hexCode                     Int
+  hexCode                     String
   colorRelatedInventoryRecord InventoryRecord[]
 }
 

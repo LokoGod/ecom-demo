@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Colors" ALTER COLUMN "hexCode" SET DATA TYPE TEXT;
