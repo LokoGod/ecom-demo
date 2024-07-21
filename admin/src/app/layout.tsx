@@ -31,16 +31,16 @@ export default function RootLayout({
       <body className={inter.className}>
         <Margin_width_wrapper>
           <TooltipProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Navbar />
-            <SideBar />
-            <Page_wrapper>{children}</Page_wrapper>
-          </ThemeProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Navbar />
+              <Page_wrapper>{children}</Page_wrapper>
+              <SideBar />
+            </ThemeProvider>
           </TooltipProvider>
         </Margin_width_wrapper>
       </body>
