@@ -51,8 +51,22 @@ import {
 } from "@/components/ui/table";
 import { Boxes, Diamond, Warehouse } from "lucide-react";
 import TestRadarChart from "@/components/charts/inventory/productColor/TestRadarChart";
+import { Input } from "@/components/ui/input";
 
-export default function ProductColors() {
+async function fetchProductColors() {
+  const response = await fetch("http://localhost:5000/api/v1/proColor", {
+    cache: "no-cache",
+  });
+  if (!response.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return response.json();
+}
+
+export default async function ProductColors() {
+  const data = await fetchProductColors();
+  const productColorData = data["color"];
+
   return (
     <main>
       <div className="mb-5">
@@ -83,6 +97,10 @@ export default function ProductColors() {
         </div>
         <div className="col-span-2">
           <div className="flex justify-end gap-2 mb-4">
+            <Input
+              className="mt-0.5 h-8"
+              placeholder="Filter by color name..."
+            />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button size="sm" variant="outline" className="mt-0.5 h-8">
@@ -143,66 +161,48 @@ export default function ProductColors() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  <TableRow>
-                    <TableCell className="hidden sm:table-cell">
-                      <Avatar className="bg-[#33ffaf]"></Avatar>
-                    </TableCell>
-                    <TableCell className="italic">Pacific Ocean Blue</TableCell>
-                    <TableCell className="font-semibold">#33ffaf</TableCell>
-                    <TableCell>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button
-                            aria-haspopup="true"
-                            size="icon"
-                            variant="ghost"
-                          >
-                            <MoreHorizontal className="h-4 w-4" />
-                            <span className="sr-only">Toggle menu</span>
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                          <DropdownMenuItem>Edit</DropdownMenuItem>
-                          <DropdownMenuItem>Delete</DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                    </TableCell>
-                  </TableRow>
-
-                  <TableRow>
-                    <TableCell className="hidden sm:table-cell">
-                      <Avatar className="bg-teal-400"></Avatar>
-                    </TableCell>
-                    <TableCell className="italic">Pacific Ocean Blue</TableCell>
-                    <TableCell className="font-semibold">#33ffaf</TableCell>
-                    <TableCell>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button
-                            aria-haspopup="true"
-                            size="icon"
-                            variant="ghost"
-                          >
-                            <MoreHorizontal className="h-4 w-4" />
-                            <span className="sr-only">Toggle menu</span>
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                          <DropdownMenuItem>Edit</DropdownMenuItem>
-                          <DropdownMenuItem>Delete</DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                    </TableCell>
-                  </TableRow>
+                  {productColorData.map((colorData: any) => (
+                    <TableRow key={colorData.id}>
+                      <TableCell className="hidden sm:table-cell">
+                        <Avatar
+                          style={{ backgroundColor: colorData.hexCode }}
+                        ></Avatar>
+                      </TableCell>
+                      <TableCell className="italic">
+                        {colorData.colorName}
+                      </TableCell>
+                      <TableCell className="font-semibold">
+                        {colorData.hexCode}
+                      </TableCell>
+                      <TableCell>
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button
+                              aria-haspopup="true"
+                              size="icon"
+                              variant="ghost"
+                            >
+                              <MoreHorizontal className="h-4 w-4" />
+                              <span className="sr-only">Toggle menu</span>
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                            <DropdownMenuItem>Edit</DropdownMenuItem>
+                            <DropdownMenuItem>Delete</DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </TableCell>
+                    </TableRow>
+                  ))}
                 </TableBody>
               </Table>
             </CardContent>
 
             <CardFooter>
               <div className="text-xs text-muted-foreground">
-                Showing <strong>1-10</strong> of <strong>32</strong> products
+                Showing <strong>1-10</strong> of
+                <strong>{productColorData.length}</strong> colors
               </div>
             </CardFooter>
           </Card>
