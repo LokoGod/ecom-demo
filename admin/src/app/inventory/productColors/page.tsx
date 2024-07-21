@@ -8,8 +8,23 @@ import {
 } from "@/components/ui/breadcrumb";
 
 import Image from "next/image";
-import { BadgePlus, FileSpreadsheet, Filter, MoreHorizontal, SlidersHorizontal } from "lucide-react";
+import {
+  BadgePlus,
+  FileSpreadsheet,
+  Filter,
+  MoreHorizontal,
+  SlidersHorizontal,
+} from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -68,24 +83,22 @@ export default function ProductColors() {
 
       <div className="grid grid-cols-4 gap-4">
         <div className="col-span-2">
-            <TestRadarChart />
+          <TestRadarChart />
         </div>
         <div className="col-span-2">
           <div className="flex justify-end gap-2 mb-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button size="sm" variant="outline" className="mt-0.5 h-8">
-                <Filter size={16} />
+                  <Filter size={16} />
                   <span className="ml-1">Filter</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuLabel>Filter by</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Team</DropdownMenuItem>
-                <DropdownMenuItem>Subscription</DropdownMenuItem>
+                <DropdownMenuItem>Color</DropdownMenuItem>
+                <DropdownMenuItem>HexCode</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -93,10 +106,24 @@ export default function ProductColors() {
               <FileSpreadsheet size={16} />
               <span className="ml-1">Export</span>
             </Button>
-            <Button size="sm">
-              <BadgePlus size={16} />
-              <span className="ml-1">Add color</span>
-            </Button>
+
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button size="sm">
+                  <BadgePlus size={16} />
+                  <span className="ml-1">Add color</span>
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Are you absolutely sure?</DialogTitle>
+                  <DialogDescription>
+                    This action cannot be undone. This will permanently delete
+                    your account and remove your data from our servers.
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
           </div>
           <Card>
             <CardHeader>
