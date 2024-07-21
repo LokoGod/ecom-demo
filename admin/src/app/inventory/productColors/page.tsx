@@ -82,7 +82,7 @@ export default function ProductColors() {
           <TestRadarChart />
         </div>
         <div className="col-span-2">
-          <div className="flex justify-end gap-2 mb-2">
+          <div className="flex justify-end gap-2 mb-4">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button size="sm" variant="outline" className="mt-0.5 h-8">
