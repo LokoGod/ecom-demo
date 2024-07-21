@@ -6,8 +6,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-
-import Image from "next/image";
 import {
   BadgePlus,
   FileSpreadsheet,
@@ -15,7 +13,7 @@ import {
   MoreHorizontal,
   SlidersHorizontal,
 } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar } from "@/components/ui/avatar";
 import {
   Dialog,
   DialogContent,
@@ -24,7 +22,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,7 +30,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -149,7 +145,7 @@ export default function ProductColors() {
                 <TableBody>
                   <TableRow>
                     <TableCell className="hidden sm:table-cell">
-                      <Avatar className="bg-teal-400"></Avatar>
+                      <Avatar className="bg-[#33ffaf]"></Avatar>
                     </TableCell>
                     <TableCell className="italic">Pacific Ocean Blue</TableCell>
                     <TableCell className="font-semibold">#33ffaf</TableCell>
