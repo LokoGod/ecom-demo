@@ -6,6 +6,11 @@ export default function Inventory() {
   return (
     <main>
       <Tabsbar />
+      <Link href={"/inventory/productColors"}>
+      <Button>
+        Color pro
+      </Button>
+      </Link>
     </main>
   );
 }
