@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
+  Boxes,
   ChevronLeft,
   ChevronRight,
   Copy,
@@ -113,7 +114,7 @@ export default function SideBar() {
                 href="/inventory"
                 className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
               >
-                <Package className="h-5 w-5" />
+                <Boxes className="h-5 w-5" />
                 <span className="sr-only">Inventory</span>
               </Link>
             </TooltipTrigger>

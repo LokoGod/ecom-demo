@@ -33,9 +33,14 @@ import {
 import { RxDesktop } from "react-icons/rx";
 import { FaRegSun } from "react-icons/fa";
 import { FaRegMoon } from "react-icons/fa";
-import { Mail, MessageSquare, PlusCircle, Search, UserPlus } from "lucide-react";
-import { Input } from "@/components/ui/input"
-
+import {
+  Mail,
+  MessageSquare,
+  PlusCircle,
+  Search,
+  UserPlus,
+} from "lucide-react";
+import { Input } from "@/components/ui/input";
 
 export default function Navbar() {
   const { setTheme } = useTheme();
@@ -58,12 +63,11 @@ export default function Navbar() {
               </div>
             </Link>
           </div>
-         
 
           <div className="flex justify-end md:w-1/3">
-          <div className=" flex justify-end pr-10">
-          <Input className="w-96" placeholder="Search..." />
-          </div>
+            <div className=" flex justify-end pr-10">
+              <Input className="w-96" placeholder="Search..." />
+            </div>
             <div>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
