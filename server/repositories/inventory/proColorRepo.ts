@@ -7,16 +7,30 @@ const getAllColors = async () => {
 
 const createColor = async (colorName: string, hexCode: string) => {
   return prisma.colors.create({
-    data : { colorName, hexCode },
-  })
-}
+    data: { colorName, hexCode },
+  });
+};
 
-const deleteColor = async () => {
-  
-}
+const getSpecificColor = async (id: number) => {
+  return prisma.colors.findUnique({
+    where: { id },
+  });
+};
+
+const updateColor = async (id: number) => {};
+
+const deleteColor = async (id: number) => {
+  return prisma.colors.delete({
+    where: { id },
+  });
+};
 
 const proColorRepo = {
-  getAllColors, createColor
+  getAllColors,
+  createColor,
+  getSpecificColor,
+  updateColor,
+  deleteColor,
 };
 
 export default proColorRepo;
