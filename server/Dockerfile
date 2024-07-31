@@ -1,6 +1,8 @@
 FROM node.js:20-alpine
-WORKDIR C:\Users\mpali\Desktop\Data\Docker
+WORKDIR /server
 
 COPY . .
+
 RUN npm install
-CMD ["node", "./src/index.js"]
+
+CMD ["node", "index.ts"]
